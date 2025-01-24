@@ -29,5 +29,7 @@ Conversion notes:
 
 ### Результат:
 
+#### Задание выполнено
+![MULTI](sources/MULTI.png)
 
 <!-- Docs to Markdown version 1.0β17 -->
