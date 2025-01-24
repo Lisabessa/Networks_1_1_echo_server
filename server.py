@@ -13,7 +13,6 @@ def handle_client(sock, clients, lock):
                 with lock:
                     if addr in clients:
                         clients.remove(addr)
-                print(f"Клиент {addr} отключен.")
 
             msg = f"[{addr[0]}:{addr[1]}]: {data.decode()}"
             print(msg)
@@ -28,7 +27,7 @@ def handle_client(sock, clients, lock):
 
 def run_echo_server():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.bind(('192.168.0.17', 9090))
+    sock.bind(('', 9090))
     print("Сервер запущен на порту 9090")
 
     clients = []
@@ -41,7 +40,6 @@ def run_echo_server():
         with lock:
             if addr not in clients:
                 clients.append(addr)
-                print(f"Новое подключение: {addr}")
 
 
 run_echo_server()

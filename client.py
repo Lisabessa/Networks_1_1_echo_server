@@ -1,5 +1,5 @@
 import socket
-import threading
+from threading import Thread
 
 
 def receive_messages(sock):
@@ -14,7 +14,7 @@ def receive_messages(sock):
 
 def client_connect():
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    threading.Thread(target=receive_messages, args=(client_socket,), daemon=True).start()
+    Thread(target=receive_messages, args=(client_socket,), daemon=True).start()
 
     while True:
         message = input('Введите сообщение:\n')
